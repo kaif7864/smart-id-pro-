@@ -11,7 +11,7 @@ export default function LoginPage({ onLogin }) {
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
-  const API_BASE_URL = import.meta.env.VITE_API_URL;
+  const API_BASE_URL = "https://smart-id-pro.onrender.com/";
   
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

@@ -7,7 +7,7 @@ export default function Sidebar() {
   const location = useLocation();
   const [balance, setBalance] = useState("0.00"); // ✨ State for balance
   const [loading, setLoading] = useState(true);
-  const API_BASE_URL = import.meta.env.VITE_API_URL; // Backend URL (adjust if needed)
+  const API_BASE_URL = "https://smart-id-pro.onrender.com/"; // Backend URL (adjust if needed)
   // ✨ API se balance fetch karein
   useEffect(() => {
     const fetchBalance = async () => {

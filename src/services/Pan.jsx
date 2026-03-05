@@ -20,7 +20,7 @@ export default function IDForm() {
   const [photoPreview, setPhotoPreview] = useState(null);
   const [signPreview, setSignPreview] = useState(null);
   const [loading, setLoading] = useState(false);
-  const API_BASE_URL = import.meta.env.VITE_API_URL; // Backend URL (adjust if needed)
+  const API_BASE_URL = "https://smart-id-pro.onrender.com/"; // Backend URL (adjust if needed)
   
   // ✨ States for Wallet and Modal
   const [walletBalance, setWalletBalance] = useState(0); 

@@ -17,7 +17,7 @@ function MarksheetForm() {
     const [walletBalance, setWalletBalance] = useState(0);
     const [showPaymentModal, setShowPaymentModal] = useState(false);
     const [message, setMessage] = useState({ type: "", text: "" });
-    const API_BASE_URL = import.meta.env.VITE_API_URL; // Backend URL (adjust if needed)
+    const API_BASE_URL = "https://smart-id-pro.onrender.com/"; // Backend URL (adjust if needed)
 
     // 1. Razorpay SDK Loader
     const loadRazorpayScript = () => {

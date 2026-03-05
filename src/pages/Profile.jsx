@@ -61,7 +61,7 @@ export default function ProfilePage() {
     }
   };
 
-const API_BASE_URL = import.meta.env.VITE_API_URL; // Backend URL (adjust if needed)
+const API_BASE_URL = "https://smart-id-pro.onrender.com/"; // Backend URL (adjust if needed)
 
 const handleSave = async (e) => {
   e.preventDefault();
