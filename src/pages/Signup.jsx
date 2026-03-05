@@ -9,7 +9,7 @@ export default function SignupPage() {
   
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const API_BASE_URL = "https://smart-id-pro.onrender.com/"; // Backend URL (adjust if needed)
+  const API_BASE_URL = "https://smart-id-pro.onrender.com"; // Backend URL (adjust if needed)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
