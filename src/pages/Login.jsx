@@ -23,7 +23,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   setError("");
   setLoading(true);
-
+  console.log("Attempting login at:", `${API_BASE_URL}/api/login`);
   try {
     // 1. Login Endpoint ka use karein (Not /api/stats)
     const response = await fetch(`${API_BASE_URL}/api/login`, { 
