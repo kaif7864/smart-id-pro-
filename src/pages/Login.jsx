@@ -11,7 +11,8 @@ export default function LoginPage({ onLogin }) {
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
-  const API_BASE_URL = "https://smart-id-pro.onrender.com";
+const API_BASE_URL = "https://smart-id-pro.onrender.com";
+console.log("API BASE URL IS →", API_BASE_URL);
   
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,7 +27,7 @@ const handleSubmit = async (e) => {
 
   try {
     // 1. Login Endpoint ka use karein (Not /api/stats)
-    const response = await fetch(`${API_BASE_URL}/api/login`, { 
+    const response = await fetch("https://glowing-mousse-811953.netlify.app/api/login", { 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
