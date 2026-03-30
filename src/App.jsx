@@ -13,6 +13,7 @@ import NotforYou from "./services/marksheets/MarksheetSelection";
 import MarksheetSelection from "./services/marksheets/MarksheetSelection";
 import MarksheetForm from "./services/marksheets/MarksheetForm";
 import AadhaarExtractor from "./services/aadhaar/AadhaarExtractor";
+import Dom from "./services/dom/dom";
 
 // 🔥 Protected Route Wrapper Component
 const ProtectedRoute = ({ children, isAuthenticated }) => {
@@ -108,6 +109,10 @@ function App() {
         <Route
           path="/coming-soon"
           element={<ProtectedRoute isAuthenticated={isAuthenticated}><ComingSoonPage /></ProtectedRoute>}
+        />
+        <Route
+          path="/dom"
+          element={<ProtectedRoute isAuthenticated={isAuthenticated}><Dom /></ProtectedRoute>}
         />
         <Route
           path="/not-for-you"

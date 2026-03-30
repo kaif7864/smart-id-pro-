@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { FiPrinter, FiSearch, FiFileText, FiDownload, FiLoader } from "react-icons/fi";
 import Sidebar from "./Sidebar";
+import { useNavigate } from "react-router-dom";
+import { FiArrowLeft } from "react-icons/fi";
 
 export default function PrintListPage() {
+  const navigate = useNavigate();
   const [printList, setPrintList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -56,26 +59,42 @@ export default function PrintListPage() {
 
       <main className="flex-1 overflow-y-auto h-screen p-4 md:p-8">
         <header className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
-          <div>
-            <h1 className="text-3xl font-extrabold text-gray-900">Print List</h1>
-            <p className="text-gray-500 mt-1">View and manage your generated ID cards.</p>
-          </div>
-          
-          <div className="flex items-center gap-3">
-            <div className="relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
-                <FiSearch />
-              </span>
-              <input
-                type="text"
-                placeholder="Search by name or ID..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="border border-gray-200 rounded-xl py-2.5 pl-10 pr-4 w-full md:w-64 focus:ring-2 focus:ring-indigo-200"
-              />
-            </div>
-          </div>
-        </header>
+
+  <div className="flex items-center gap-3">
+    
+    {/* Back Button */}
+    <button
+      onClick={() => navigate(-1)}
+      className="p-2 rounded-lg hover:bg-gray-200 transition"
+    >
+      <FiArrowLeft size={20} />
+    </button>
+
+    <div>
+      <h1 className="text-3xl font-extrabold text-gray-900">Print List</h1>
+      <p className="text-gray-500 mt-1">
+        View and manage your generated ID cards.
+      </p>
+    </div>
+
+  </div>
+
+  <div className="flex items-center gap-3">
+    <div className="relative">
+      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+        <FiSearch />
+      </span>
+      <input
+        type="text"
+        placeholder="Search by name or ID..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="border border-gray-200 rounded-xl py-2.5 pl-10 pr-4 w-full md:w-64 focus:ring-2 focus:ring-indigo-200"
+      />
+    </div>
+  </div>
+
+</header>
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           {loading ? (

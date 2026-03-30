@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMail, FiLock, FiUser, FiLoader, FiPhone, FiEye, FiEyeOff } from "react-icons/fi";
+import Swal from "sweetalert2";
 
 export default function SignupPage() {
   const navigate = useNavigate();
@@ -52,9 +53,17 @@ export default function SignupPage() {
       const data = await response.json();
 
       if (response.ok) {
-        // ✨ SUCCESS: Redirect to Login
-        navigate("/login");
-      } else {
+
+  Swal.fire({
+    icon: "success",
+    title: "Signup Successful 🎉",
+    text: "Your account has been created successfully!",
+    confirmButtonColor: "#4f46e5",
+  }).then(() => {
+    navigate("/login");
+  });
+
+} else {
         // ❌ ERROR: Show message from backend (e.g., "User already exists")
         setError(data.message || "Something went wrong");
       }

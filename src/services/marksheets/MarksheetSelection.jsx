@@ -15,12 +15,12 @@ const marksheets = [
         path: '/old-2nd' // 👈 Alag URL
     },
     { 
-        id: 'intermediate', 
-        title: '12th Class (Intermediate)', 
-        board: 'UP Board / CBSE', 
+        id: 'caste', 
+        title: 'uk caste certificate', 
+        board: 'Uk', 
         cost: 20, 
         color: 'bg-indigo-500', 
-        path: '/coming-soon' // 👈 Alag URL
+        path: '/dom' // 👈 Alag URL
     },
     { 
         id: 'graduation', 

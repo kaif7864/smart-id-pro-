@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import { FiPlusCircle, FiSearch, FiArrowDownLeft, FiArrowUpRight } from "react-icons/fi";
 import { LuWallet } from "react-icons/lu";
 import Sidebar from "./Sidebar";
+import { useNavigate } from "react-router-dom";
+import { FiArrowLeft } from "react-icons/fi"; 
 
 export default function WalletPage() {
+  const navigate = useNavigate();
   const [balance, setBalance] = useState(0.00);
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,18 +41,36 @@ export default function WalletPage() {
       <Sidebar />
 
       <main className="flex-1 overflow-y-auto h-screen p-4 md:p-8">
-        <header className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
-          <div>
-            <h1 className="text-3xl font-extrabold text-gray-900">Wallet</h1>
-            <p className="text-gray-500 mt-1">Manage your balance and view transactions.</p>
-          </div>
-          
-          <Link to="/add-money" className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold transition flex items-center gap-2 shadow-sm">
-            <FiPlusCircle size={18} />
-            Add Money
-          </Link>
-        </header>
+       <header className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
 
+  <div className="flex items-center gap-3">
+    
+    {/* Back Button */}
+    <button
+      onClick={() => navigate(-1)}
+      className="p-2 rounded-lg hover:bg-gray-200 transition"
+    >
+      <FiArrowLeft size={20} />
+    </button>
+
+    <div>
+      <h1 className="text-3xl font-extrabold text-gray-900">Wallet</h1>
+      <p className="text-gray-500 mt-1">
+        Manage your balance and view transactions.
+      </p>
+    </div>
+
+  </div>
+
+  <Link
+    to="/add-money"
+    className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold transition flex items-center gap-2 shadow-sm"
+  >
+    <FiPlusCircle size={18} />
+    Add Money
+  </Link>
+
+</header>
         {/* Balance Card */}
         <div className="bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-3xl p-8 text-white shadow-lg shadow-indigo-200 mb-10">
           <div className="flex justify-between items-start">

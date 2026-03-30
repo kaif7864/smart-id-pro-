@@ -17,8 +17,12 @@
     "lucide-react": "^0.576.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-draggable": "^4.5.0",
     "react-icons": "^5.5.0",
+    "react-resizable": "^3.1.3",
     "react-router-dom": "^7.13.1",
+    "react-simple-keyboard": "^3.8.174",
+    "simple-keyboard-layouts": "^3.4.179",
     "sweetalert2": "^11.26.21",
     "tailwindcss": "^4.2.1"
   },

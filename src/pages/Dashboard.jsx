@@ -6,6 +6,7 @@ import Sidebar from "../components/Sidebar";
 import ComingSoonPage from "../components/ComingSoonPage";
 import { GiFirstAidKit } from "react-icons/gi";
 import NotforYou from "../services/marksheets/MarksheetForm";
+import { FiMenu } from "react-icons/fi";
 
 export default function Dashboard() {
   const [showWelcome, setShowWelcome] = useState(false);
@@ -14,6 +15,7 @@ export default function Dashboard() {
   const [recentPrints, setRecentPrints] = useState([]); // ✨ New state for history
   const [loading, setLoading] = useState(true);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   
   const [user, setUser] = useState({
       name: "User",
@@ -148,32 +150,49 @@ useEffect(() => {
 
   return (
     <div className="min-h-screen bg-[#f3f4f6] flex">
-      <Sidebar />
+      <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} />
 
       <main className="flex-1 overflow-y-auto h-screen">
         
-        <header className="bg-white border-b border-gray-100 py-4 px-6 md:px-8 flex items-center justify-between sticky top-0 z-10">
-          <h1 className="text-xl font-bold text-gray-800">Dashboard</h1>
-          
-          <div className="flex items-center gap-4">
-            <Link to="/profile" className="flex items-center gap-3 group">
-              <img
-                src={user.avatar}
-                alt="Profile"
-                className="h-10 w-10 rounded-full object-cover border-2 border-indigo-100"
-              />
-              <span className="font-semibold text-gray-700 group-hover:text-indigo-600">{user.name}</span>
-            </Link>
-            
-            <button 
-              onClick={handleLogout}
-              className="flex items-center gap-2 text-red-600 hover:bg-red-50 p-2 rounded-lg transition"
-              title="Logout"
-            >
-              <FiLogOut size={20} />
-            </button>
-          </div>
-        </header>
+        <header className="bg-white border-b border-gray-100 py-4 px-4 md:px-8 flex items-center justify-between sticky top-0 z-10">
+
+  {/* Mobile Menu Button */}
+  <button
+    className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+    onClick={() => setSidebarOpen(true)}
+  >
+    <FiMenu size={22} />
+  </button>
+
+  {/* Dashboard Title */}
+  <h1 className="text-xl font-bold text-gray-800 mx-auto md:mx-0">
+    Dashboard
+  </h1>
+
+  {/* Right Section */}
+  <div className="flex items-center gap-4">
+    <Link to="/profile" className="hidden sm:flex items-center gap-3 group">
+      <img
+        src={user.avatar}
+        alt="Profile"
+        className="h-10 w-10 rounded-full object-cover border-2 border-indigo-100"
+      />
+      <span className="font-semibold text-gray-700 group-hover:text-indigo-600">
+        {user.name}
+      </span>
+    </Link>
+
+    <button 
+      onClick={handleLogout}
+      className="flex items-center gap-2 text-red-600 hover:bg-red-50 p-2 rounded-lg transition"
+      title="Logout"
+    >
+      <FiLogOut size={20} />
+    </button>
+  </div>
+
+</header>
+
 
         <div className="p-4 md:p-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">

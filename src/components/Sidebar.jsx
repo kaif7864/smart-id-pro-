@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FiPlus, FiClock, FiUser, FiFileText, FiPlusCircle } from "react-icons/fi";
 import { LuWallet } from "react-icons/lu";
 
-export default function Sidebar() {
+export default function Sidebar({ open, setOpen }) {
   const location = useLocation();
   const [balance, setBalance] = useState("0.00"); // ✨ State for balance
   const [loading, setLoading] = useState(true);
@@ -32,7 +32,19 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <aside className="w-72 bg-white border-r border-gray-200 hidden lg:flex flex-col p-6 sticky top-0 h-screen">
+    <aside
+  className={`fixed lg:static top-0 left-0 h-screen w-72 bg-white border-r border-gray-200 flex flex-col p-6 z-50 transform transition-transform duration-300
+  ${open ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
+>
+
+    {/* Mobile Close Button */}
+  <button
+    className="lg:hidden absolute top-4 right-4 text-gray-600"
+    onClick={() => setOpen(false)}
+  >
+    ✕
+  </button>
+
       <div className="flex items-center gap-2 mb-10 px-2">
         <div className="bg-indigo-600 p-2 rounded-lg">
           <FiPlus className="text-white w-5 h-5" />

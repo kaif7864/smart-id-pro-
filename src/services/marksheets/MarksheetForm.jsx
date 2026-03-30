@@ -233,13 +233,13 @@ function MarksheetForm() {
                                     <span className="text-xs font-medium bg-gray-100 px-2 py-1 rounded-lg">Bal: ₹{walletBalance}</span>
                                 </button>
 
-                                <button 
+                                {/* <button 
                                     onClick={() => generateID("razorpay")}
                                     className="w-full flex items-center gap-3 p-4 border-2 rounded-2xl hover:border-green-500 hover:bg-green-50 transition"
                                 >
                                     <FiCreditCard className="text-green-600" size={24} />
                                     <span className="font-bold text-gray-800">Online (Razorpay)</span>
-                                </button>
+                                </button> */}
                             </div>
                             
                             <button 

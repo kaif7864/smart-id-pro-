@@ -11,7 +11,7 @@ const AadhaarExtractor = () => {
     const [rawText, setRawText] = useState("");
     const [paymentMethod, setPaymentMethod] = useState("wallet");
     const [userEmail, setUserEmail] = useState("");
-    const API_BASE_URL = "https://smart-id-pro.onrender.com/"; // Backend URL (adjust if needed)
+    const API_BASE_URL = import.meta.env.VITE_API_URL || "https://smart-id-pro.onrender.com"; // Backend URL (adjust if needed)
 
     useEffect(() => {
         const storedEmail = localStorage.getItem("userEmail") || "user@example.com";
@@ -306,7 +306,7 @@ const AadhaarExtractor = () => {
                                     onChange={(e) => setPaymentMethod(e.target.value)}
                                     className="w-full bg-slate-800 rounded-xl py-3 px-4 mb-4 outline-none border border-slate-700">
                                     <option value="wallet">💰 Wallet (₹20.00)</option>
-                                    <option value="razorpay">💳 Razorpay Online</option>
+                                    {/* <option value="razorpay">💳 Razorpay Online</option> */}
                                 </select>
                                 <button
   onClick={handleGenerate}

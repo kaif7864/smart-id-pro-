@@ -39,7 +39,7 @@ export default function AddMoneyPage() {
 
     try {
       // 1. Backend se Order Create karein
-      const orderRes = await axios.post("http://127.0.0.1:5000/api/create-order", {
+      const orderRes = await axios.post(`${API_BASE_URL}/api/create-order`, {
         email: userEmail,
         amount: parseFloat(amount),
       });
@@ -118,6 +118,13 @@ export default function AddMoneyPage() {
                   </button>
                 ))}
               </div>
+              <input
+  type="number"
+  placeholder="Enter custom amount"
+  value={amount}
+  onChange={(e) => setAmount(e.target.value)}
+  className="w-full mt-4 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+/>
             </div>
 
             <button

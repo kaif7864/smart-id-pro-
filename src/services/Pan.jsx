@@ -273,13 +273,13 @@ const generateID = async (paymentMethod) => {
                 <span className="text-sm text-gray-500">Bal: Rs.{walletBalance}</span>
               </button>
 
-              <button 
+              {/* <button 
                 onClick={() => generateID("razorpay")}
                 className="w-full flex items-center gap-3 p-4 border rounded-xl hover:border-indigo-300"
               >
                 <FiCreditCard className="text-green-600" size={24} />
                 <span className="font-semibold">Pay by(UPI/Card)</span>
-              </button>
+              </button> */}
             </div>
             
             <button 
