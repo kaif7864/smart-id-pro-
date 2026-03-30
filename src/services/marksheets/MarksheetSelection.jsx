@@ -18,7 +18,7 @@ const marksheets = [
         id: 'caste', 
         title: 'uk caste certificate', 
         board: 'Uk', 
-        cost: 20, 
+        cost: 65, 
         color: 'bg-indigo-500', 
         path: '/dom' // 👈 Alag URL
     },
